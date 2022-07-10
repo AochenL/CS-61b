@@ -16,7 +16,7 @@ public class Planet{
 
     /** */
     /**  Create a Planet object using constructor*/
-    public (double xP, double yP, double xV,
+    public Planet (double xP, double yP, double xV,
                 double yV, double m, String img){
                     xxPos = xP;
                     yyPos = yP;
