@@ -1,5 +1,5 @@
 
-public class NPlanet{
+public class NBody{
     public static double readRadius(String filename){
         /** Given a file name as a String,
         return a double corresponding to
