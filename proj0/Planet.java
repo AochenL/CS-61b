@@ -1,5 +1,5 @@
 
-public class Body{
+public class Planet{
     private static final double G = 6.67e-11;
     /** double xxPos: Its current x position
     double yyPos: Its current y position
