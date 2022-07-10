@@ -139,5 +139,4 @@ public class Planet{
         StdDraw.picture(x, y, imageToDraw);
     }
 
-
 }
