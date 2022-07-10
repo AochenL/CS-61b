@@ -10,7 +10,7 @@ public class NBody{
         return r;
     }
 
-    public static Planet[] ReadPlanets(String filename){
+    public static Planet[] readPlanets(String filename){
         /**Given a file name,
          return an array of Planets corresponding to
          the Planets in the file */
