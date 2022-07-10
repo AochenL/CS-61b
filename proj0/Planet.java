@@ -15,8 +15,8 @@ public class Planet{
     public String imgFileName;
 
     /** */
-    /**  Create a Body object using constructor*/
-    public Body(double xP, double yP, double xV,
+    /**  Create a Planet object using constructor*/
+    public (double xP, double yP, double xV,
                 double yV, double m, String img){
                     xxPos = xP;
                     yyPos = yP;
@@ -25,9 +25,9 @@ public class Planet{
                     mass = m;
                     imgFileName = img;
                 }
-   /** The second constructor takes in a Body object
-   and initialize an identical Body object */
-    public Body(Body b){
+   /** The second constructor takes in a Planet object
+   and initialize an identical Planet object */
+    public Planet(Planet b){
         xxPos = b.xxPos;
         yyPos = b.yyPos;
         xxVel = b.xxVel;
@@ -36,8 +36,8 @@ public class Planet{
         imgFileName = b.imgFileName;
     }
 
-    public double calcDistance(Body b){
-        /** Calculated the distance between this body and body b;
+    public double calcDistance(Planet b){
+        /** Calculated the distance between this Planet and Planet b;
             r = sqrt(dx^2+dy^2)
          */
         double dx = this.xxPos-b.xxPos;
@@ -46,16 +46,16 @@ public class Planet{
         return r;
     }
 
-    public double calcForceExertedBy(Body b){
-        /** Calculte the force between this body and body b;
+    public double calcForceExertedBy(Planet b){
+        /** Calculte the force between this Planet and Planet b;
         F=G⋅m1⋅m2/r^2 */
         double r = this.calcDistance(b);
         double F = G*this.mass*b.mass/(r*r);
         return F;
     }
 
-    public double calcForceExertedByX(Body b){
-        /** Calculte the force exerted by Body b in the X direction;
+    public double calcForceExertedByX(Planet b){
+        /** Calculte the force exerted by Planet b in the X direction;
         Fx=F⋅dx/r
         check the signs */
         double r = this.calcDistance(b);
@@ -65,8 +65,8 @@ public class Planet{
         return Fx;
     }
 
-    public double calcForceExertedByY(Body b){
-        /** Calculte the force exerted by Body b in the Y direction;
+    public double calcForceExertedByY(Planet b){
+        /** Calculte the force exerted by Planet b in the Y direction;
         Fx=F⋅dy/r
         check the signs */
         double r = this.calcDistance(b);
@@ -76,16 +76,16 @@ public class Planet{
         return Fy;
     }
 
-    public double calcNetForceExertedByX(Body[] allBodys){
+    public double calcNetForceExertedByX(Planet[] allPlanets){
         /** calculates the net X force
-        exerted by all bodies in that array upon the current Body
+        exerted by all bodies in that array upon the current Planet
 
         use the .equals method to
-        ignore any body in the array that is equal to the current body
+        ignore any Planet in the array that is equal to the current Planet
 
         Fnet,x=F1,x+F2,x*/
         double FnetX = 0;
-        for (Body b : allBodys){
+        for (Planet b : allPlanets){
             if (!(this.equals(b))){
                 FnetX += this.calcForceExertedByX(b);
             }
@@ -93,11 +93,11 @@ public class Planet{
         return FnetX;
     }
 
-    public double calcNetForceExertedByY(Body[] allBodys){
+    public double calcNetForceExertedByY(Planet[] allPlanets){
         /** calculates the net Y force
-        exerted by all bodies in that array upon the current Body */
+        exerted by all bodies in that array upon the current Planet */
         double FnetY = 0;
-        for (Body b : allBodys){
+        for (Planet b : allPlanets){
             if (!(this.equals(b))){
                 FnetY += this.calcForceExertedByY(b);
             }
@@ -106,9 +106,9 @@ public class Planet{
     }
 
     public void update(double dt, double Fx, double Fy){
-        /** add a method that determines how much the forces exerted on the body w
-        ill cause that body to accelerate,
-        and the resulting change in the body’s velocity and position
+        /** add a method that determines how much the forces exerted on the Planet w
+        ill cause that Planet to accelerate,
+        and the resulting change in the Planet’s velocity and position
         in a small period of time dt.
         For example, samh.update(0.005, 10, 3)
         would adjust the velocity and position
