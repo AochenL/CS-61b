@@ -34,12 +34,6 @@ public class NBody{
          return allPlanets;
     }
 
-    public static void drawBackgroundImage(double radius){
-        StdDraw.enableDoubleBuffering();
-
-
-    }
-
     public static void main(String[] args){
 
         double T = Double.parseDouble(args[0]);
